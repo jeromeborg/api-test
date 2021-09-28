@@ -1,3 +1,4 @@
+Simple api (without authentification), to provide fast test from frontend project
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
