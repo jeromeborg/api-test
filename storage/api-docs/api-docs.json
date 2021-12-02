@@ -1,0 +1,144 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Example ReactBlog API",
+        "contact": {
+            "name": "Jerome B",
+            "email": "contact@jeromeb.org"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/reactblogs": {
+            "get": {
+                "tags": [
+                    "endpoints"
+                ],
+                "operationId": "index reactblogs",
+                "responses": {
+                    "200": {
+                        "description": "Returns some list of reactblogs",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Reactblog"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request. No required parameters."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "endpoint"
+                ],
+                "summary": "Add a new reactblog to the store",
+                "operationId": "store reactblog",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Reactblog"
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/api/reactblogs/{id}": {
+            "get": {
+                "tags": [
+                    "endpoints"
+                ],
+                "operationId": "show reactblogs/id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The id parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns some sample reactblog",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Reactblog"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request. When required parameters were not supplied."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Reactblog": {
+                "title": "Reactblog",
+                "description": "Class Reactblog",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "title": "Reactblog title",
+                        "description": "Reactblog title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "title": "Reactblog description",
+                        "description": "Reactblog description",
+                        "type": "string"
+                    },
+                    "author": {
+                        "title": "Reactblog author",
+                        "description": "Reactblog author",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Reactblog"
+                }
+            }
+        },
+        "requestBodies": {
+            "Reactblog": {
+                "description": "reactblog object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Reactblog"
+                        }
+                    },
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Reactblog"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

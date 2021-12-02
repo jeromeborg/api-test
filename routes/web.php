@@ -7,6 +7,16 @@
 use Illuminate\Support\Str;
 return Str::random(32);
 */
+/*
+// DOC
+https://swagger.io/specification/
+
+SWAGGER
+https://stackoverflow.com/questions/45211512/how-to-integrate-swagger-in-lumen-laravel-for-rest-api
+http://api.test/api/documentation
+ou
+http://api.test/docs
+*/
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
