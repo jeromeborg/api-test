@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reactblog;
 use Illuminate\Http\Request;
+use App\Http\Resources\ReactblogResource;
 
 class ReactblogController extends Controller
 {
@@ -15,13 +16,13 @@ class ReactblogController extends Controller
 
     public function index()
     {
-        $reactblogs = Reactblog::all();
+        $reactblogs = ReactblogResource::collection(Reactblog::all());
         return response()->json($reactblogs);
     }
 
     public function show($id)
     {
-        $reactblog = Reactblog::find($id);
+        $reactblog = new ReactblogResource(Reactblog::find($id));
         return response()->json($reactblog);
     }
 
