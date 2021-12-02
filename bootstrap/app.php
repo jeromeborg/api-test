@@ -60,6 +60,8 @@ $app->singleton(
 */
 
 $app->configure('app');
+// SWAGGER
+$app->configure('swagger-lume');
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +102,9 @@ $app->middleware([
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Fruitcake\Cors\CorsServiceProvider::class);
+
+// SWAGGER
+$app->register(\SwaggerLume\ServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
